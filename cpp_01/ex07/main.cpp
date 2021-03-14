@@ -3,22 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 03:51:49 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/14 09:25:07 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/14 13:56:07 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
+# define BHI_RED		"\e[1;91m"
+# define BHI_GREEN		"\e[1;92m"
+# define RESET			"\e[0m"
+
+/* 	to compile use:
+
+	clang++ -g -Wall -Wextra -Werror -std=c++98 *.cpp
+
+*/
+
 int main(int argc, char **argv)
 {
-	if (argc < 4)
+	if (argc < 4 || argc > 4)
 	{
-		std::cout << "ERROR: not enough arguments" << std::endl;
-		std::cout << "USE: ./replace FILENAME STRING1 STRING2" << std::endl;
+		std::cout << BHI_RED << "ERROR: " << RESET << "wrong number of arguments" << std::endl;
+		std::cout << BHI_GREEN <<"USE: " << RESET << "./replace FILENAME STRING1 STRING2" << std::endl;
 		exit(EXIT_FAILURE);
 	}
 	std::string filename = argv[1], s1 = argv[2], s2 = argv[3];
@@ -41,11 +51,11 @@ int main(int argc, char **argv)
 	while (!fin.eof())
 	{
 		std::getline(fin, buf);
-		std::size_t found = buf.find(s1);
-		while (found != std::string::npos)
+		std::size_t found;
+		while ((found = buf.find(s1))!= std::string::npos)
 		{
 			found = buf.find(s1, found + s1.size());
-			buf.replace(buf.find(s1), s2.size(), s2);
+			buf.replace(buf.find(s1), s1.size(), s2);
 		}
 		fout << buf << std::endl;
 	}
