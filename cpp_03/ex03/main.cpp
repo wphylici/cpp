@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 21:39:35 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 07:32:36 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/20 20:44:17 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "NinjaTrap.hpp"
 
 /*
  * clang++ -g -Wall -Wextra -Werror -std=c++98 *.cpp
@@ -20,23 +22,22 @@
 int main()
 {
 
+	NinjaTrap INAC("INAC");
+
+	INAC.rangedAttack("Jakobs");
+	INAC.meleeAttack("Jakobs");
+	INAC.takeDamage(42);
+	INAC.beRepaired(21);
+
+	ClapTrap BLTPS("BLTPS");
 	FragTrap Jakobs("Jakobs");
-	ScavTrap Inac("Inac");
+	ScavTrap Mark("Mark");
+	NinjaTrap Cluck("Cluck");
 
-	Inac.rangedAttack("Jakobs");
-	Jakobs.rangedAttack("Inac");
-
-	Inac.meleeAttack("Jakobs");
-	Jakobs.meleeAttack("Inac");
-
-	Inac.takeDamage(42);
-	Jakobs.takeDamage(42);
-
-	Inac.beRepaired(21);
-	Jakobs.beRepaired(21);
-
-	Inac.challengeNewcomer();
-	Jakobs.vaulthunter_dot_exe("Inac");
+	Cluck.ninjaShoebox(Jakobs);
+	Cluck.ninjaShoebox(Mark);
+	Cluck.ninjaShoebox(BLTPS);
+	Cluck.ninjaShoebox(INAC);
 
 	return (0);
 }

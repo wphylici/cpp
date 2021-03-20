@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 21:39:35 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 07:32:36 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/20 17:12:45 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,22 @@ int main()
 {
 
 	FragTrap Jakobs("Jakobs");
-	ScavTrap Inac("Inac");
+	ScavTrap Taylor("Taylor");
 
-	Inac.rangedAttack("Jakobs");
-	Jakobs.rangedAttack("Inac");
+	Taylor.rangedAttack("Jakobs");
+	Jakobs.rangedAttack("Taylor");
 
-	Inac.meleeAttack("Jakobs");
-	Jakobs.meleeAttack("Inac");
+	Taylor.meleeAttack("Jakobs");
+	Jakobs.meleeAttack("Taylor");
 
-	Inac.takeDamage(42);
+	Taylor.takeDamage(42);
 	Jakobs.takeDamage(42);
 
-	Inac.beRepaired(21);
+	Taylor.beRepaired(21);
 	Jakobs.beRepaired(21);
 
-	Inac.challengeNewcomer();
-	Jakobs.vaulthunter_dot_exe("Inac");
+	Taylor.challengeNewcomer();
+	Jakobs.vaulthunter_dot_exe("Taylor");
 
 	return (0);
 }

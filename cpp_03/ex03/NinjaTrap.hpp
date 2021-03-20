@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/18 06:52:47 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 20:02:43 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/20 15:26:28 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/20 20:29:18 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef NINJATRAP_HPP
+# define NINJATRAP_HPP
 
 # include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
+# include "NinjaTrap.hpp"
 
-class FragTrap : public ClapTrap
+
+class NinjaTrap : public ClapTrap
 {
 	public:
-		FragTrap();
-		FragTrap(std::string const Name);
-		FragTrap(const FragTrap &frag_trap);
-		FragTrap &operator = (const FragTrap &frag_trap);
-		~FragTrap();
+		NinjaTrap();
+		NinjaTrap(std::string const Name);
+		NinjaTrap(const NinjaTrap &ninja_trap);
+		NinjaTrap &operator = (const NinjaTrap &ninja_trap);
+		~NinjaTrap();
 		std::string getColor();
 		void Born();
-		void vaulthunter_dot_exe(std::string const &target);
+		void ninjaShoebox(ClapTrap &arg);
+		void ninjaShoebox(FragTrap &arg);
+		void ninjaShoebox(ScavTrap &arg);
+		void ninjaShoebox(NinjaTrap &arg);
 };
 
 #endif

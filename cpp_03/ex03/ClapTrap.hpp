@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 06:19:06 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 07:13:55 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/20 20:04:13 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ class ClapTrap
 		ClapTrap(const ClapTrap &clap_trap);
 		ClapTrap &operator = (const ClapTrap &clap_trap);
 		~ClapTrap();
+		std::string getColor();
 		void rangedAttack(std::string const &target);
 		void meleeAttack(std::string const &target);
 		void takeDamage(unsigned int amount);

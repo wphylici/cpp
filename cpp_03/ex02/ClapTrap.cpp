@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 06:45:27 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 07:42:47 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/20 19:25:42 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 ClapTrap::ClapTrap()
 {
 	std::cout << BHI_PURPLE << std::endl << "*---------- ClapTrap default constructor called ----------*" << std::flush << std::endl;
+	this->_color = BHI_PURPLE;
 }
 
 ClapTrap::ClapTrap(std::string const Name) : _name(Name)
 {
 	std::cout << BHI_PURPLE << std::endl << "*---------- ClapTrap constructor called ----------*" << std::flush << std::endl;
+	this->_color = BHI_PURPLE;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &clap_trap)

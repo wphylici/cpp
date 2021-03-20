@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 07:18:51 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/20 19:24:19 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ScavTrap::Born()
 	std::string Bar = "[                                             ]      %";
 	size_t progress = 1;
 
-	std::cout << BHI_YELLOW << "Сhecking guns status";
+	std::cout << BHI_YELLOW << "Boting";
 	for(int t = 0; t < 3; t++)
     {
         usleep(200000);
@@ -29,7 +29,7 @@ void ScavTrap::Born()
         usleep(200000);
         std::cout << "\b\b\b   \b\b\b" << std::flush;
 	}
-	std::cout << "\033[0G" << "\033[K" << "Loading guns..." << RESET << std::endl
+	std::cout << "\033[0G" << "\033[K" << "Loading miserable existence..." << RESET << std::endl
 	<< std::endl;
 	std::ostringstream buf;
 	double coef = (100 * 1.0) / ((int)Bar.size() - 10);
@@ -39,7 +39,7 @@ void ScavTrap::Born()
 		std::cout << "\033[1A";
 		percent += coef;
 		buf << std::fixed << std::setprecision(2) << percent;
-		std::cout << HI_RED << Bar.replace(progress++, 2, "->") << "\033[0G" <<
+		std::cout << HI_BLUE << Bar.replace(progress++, 2, "->") << "\033[0G" <<
 		Bar.replace(Bar.size() - buf.str().size() - 1, buf.str().size(),
 		buf.str()) << std::flush << RESET << std::endl;
 		usleep(30000);
@@ -57,22 +57,22 @@ ScavTrap::ScavTrap()
 	this->_name = "<Name no set>";
 	this->_meleeAttackDamage = 20;
 	this->_rangedAttackDamage = 15;
-	this->_armorDamageReduction = 3;
-	this->_color = "\e[1;91m";
+	this->_armorDamageReduction = 0;
+	this->_color = BHI_BLUE;
 
 	usleep(300000);
-	std::cout << BHI_RED << std::endl << "*---------- ScavTrap default constructor called ----------*" << std::endl;
+	std::cout << BHI_BLUE << std::endl << "*---------- ScavTrap default constructor called ----------*" << std::endl;
 	usleep(300000);
 	Born();
 	usleep(300000);
 
-	std::cout << "\033[2A" << "\033[K" << BHI_RED << "Done!" << std::flush << "\033[2B" << "\033[0G";
+	std::cout << "\033[2A" << "\033[K" << BHI_BLUE << "Done!" << std::flush << "\033[2B" << "\033[0G";
 	usleep(600000);
 	std::cout << "Booting sequence complete." << RESET << std::flush << std::endl <<std::endl;
 	usleep(600000);
-	std::cout << ITALICS << "VIVA LA ROBOLUTION! I am Leader of the Robolution!" << std::endl << "My name is "
-	<< this->_name << "." << std::endl << "Designation: CL4P-TP, Interplanetary Ninja Assassin Claptrap" <<
-	std::endl << "Appointment: exterminate humans." << RESET << std::endl;
+	std::cout << ITALICS << "Greetings! I operates in service to a scav gang." << std::endl << "My name is "
+	<< this->_name << "." << std::endl << "Designation: SC4V-TP" <<
+	std::endl << "Race: Robots" << RESET << std::endl;
 	std::cout << std::endl << "Press Enter";
 	std::string str;
 	getline(std::cin, str);
@@ -89,22 +89,22 @@ ScavTrap::ScavTrap(std::string const Name)
 	this->_name = Name;
 	this->_meleeAttackDamage = 20;
 	this->_rangedAttackDamage = 15;
-	this->_armorDamageReduction = 3;
-	this->_color = "\e[1;91m";
+	this->_armorDamageReduction = 0;
+	this->_color = BHI_BLUE;
 
 	usleep(300000);
-	std::cout << BHI_RED << std::endl << "*---------- ScavTrap constructor called ----------*" << std::flush << std::endl;
+	std::cout << BHI_BLUE << std::endl << "*---------- ScavTrap constructor called ----------*" << std::flush << std::endl;
 	usleep(300000);
 	Born();
 	usleep(300000);
 
-	std::cout << "\033[2A" << "\033[K" << BHI_RED << "Done!" << std::flush << "\033[2B" << "\033[0G";
+	std::cout << "\033[2A" << "\033[K" << BHI_BLUE << "Done!" << std::flush << "\033[2B" << "\033[0G";
 	usleep(600000);
 	std::cout << "Booting sequence complete." << RESET << std::flush << std::endl <<std::endl;
 	usleep(600000);
-	std::cout << ITALICS << "VIVA LA ROBOLUTION! I am Leader of the Robolution!" << std::endl << "My name is "
-	<< this->_name << "." << std::endl << "Designation: CL4P-TP, Interplanetary Ninja Assassin Claptrap." <<
-	std::endl << "Appointment: exterminate humans." << RESET << std::endl;
+	std::cout << ITALICS << "Greetings! I operates in service to a scav gang." << std::endl << "My name is "
+	<< this->_name << "." << std::endl << "Designation: SC4V-TP" <<
+	std::endl << "Race: Robots" << RESET << std::endl;
 	std::cout << std::endl << "Press Enter";
 	std::string str;
 	getline(std::cin, str);
@@ -113,9 +113,9 @@ ScavTrap::ScavTrap(std::string const Name)
 
 ScavTrap::ScavTrap(const ScavTrap &scav_trap)
 {
-	std::cout << BHI_RED << std::endl << "*---------- ScavTrap copy constructor called ----------*" << std::endl;
+	std::cout << BHI_BLUE << std::endl << "*---------- ScavTrap copy constructor called ----------*" << std::endl;
 	std::cout << BHI_YELLOW << "Сloning completed successfully." << RESET << std::endl;
-	std::cout << ITALICS << "You're the wub to my dub!" << std::endl;
+	std::cout << ITALICS << "Why can't I remember my past?" << std::endl;
 
 	this->_hitPoints = scav_trap._hitPoints;
 	this->_maxHitPoints = scav_trap._maxHitPoints;
@@ -131,9 +131,9 @@ ScavTrap::ScavTrap(const ScavTrap &scav_trap)
 
 ScavTrap& ScavTrap::operator = (const ScavTrap &scav_trap)
 {
-	std::cout << std::endl << BHI_RED << "*---------- ScavTrap assignation operator called ----------*" << std::endl;
+	std::cout << std::endl << BHI_BLUE << "*---------- ScavTrap assignation operator called ----------*" << std::endl;
 	std::cout << BHI_YELLOW << "Сloning completed successfully." << RESET << std::endl;
-	std::cout << ITALICS << "You're the wub to my dub!" << std::endl;
+	std::cout << ITALICS << "Why can't I remember my past?" << std::endl;
 
 	this->_hitPoints = scav_trap._hitPoints;
 	this->_maxHitPoints = scav_trap._maxHitPoints;
@@ -151,35 +151,37 @@ ScavTrap& ScavTrap::operator = (const ScavTrap &scav_trap)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << BHI_RED << std::endl << "*---------- ScavTrap destructor called ----------*" << RESET << std::endl;
+	std::cout << BHI_BLUE << std::endl << "*---------- ScavTrap destructor called ----------*" << RESET << std::endl;
 
-	std::cout << ITALICS << "What's happening to me?" <<
+	std::cout << ITALICS << "Disconnecting..." <<
 	RESET << std::endl;
 }
 
 unsigned int ScavTrap::getHitPoints()
 {
-	std::cout << std::endl << BHI_RED << "*---------- ScavTrap getHitPoints called ----------*" << std::endl;
-	std::cout << BHI_YELLOW << "has " << this->_hitPoints << " health points" << RESET << std::endl;
+	std::cout << std::endl << BHI_BLUE << "*---------- ScavTrap getHitPoints called ----------*" << std::endl;
+	std::cout << BHI_YELLOW << "Has " << this->_hitPoints << " health points." << RESET << std::endl;
 	return (this->_hitPoints);
 }
 
 void ScavTrap::challengeNewcomer()
 {
 	srand(time(NULL));
-	std::cout << std::endl << BHI_RED << "*---------- challengeNewcomer called ----------*" << RESET << std::endl;
+	std::cout << std::endl << BHI_BLUE << "*---------- challengeNewcomer called ----------*" << RESET << std::endl;
 	int challenge = rand() % 4;
 	std::cout << BHI_YELLOW << "Challenge randomly selected: ";
 	switch (challenge)
 	{
 		case (0):
-			std::cout << "stop killing humans." << RESET << std::endl;
-			std::cout << ITALICS << "Ha ha ha! You funny, maaaan!" << RESET << std::endl;
+			std::cout << "to rap" << RESET << std::endl;
+			std::cout << ITALICS << "Niggas think it's sweet (nah, nah), it's on sight (yeah, what?)" << std::endl <<
+			"Nothin' nice (yeah), baguettes in my ice (aww, man). Yo! " << RESET << std::endl;
 			break;
 		case (1):
-			std::cout << "sing an annoying song" << RESET << std::endl;
-			std::cout << ITALICS << "Ha ha ha! Fall before your robot overlord!" <<
-			RESET << std::endl;
+			std::cout << "sing a song" << RESET << std::endl;
+			std::cout << ITALICS << "You and me baby we ain't nothin' but mammals" << std::endl <<
+			"So let's do it like they do on the Discovery Channel" << std::endl <<
+			"Do it again now!" << RESET << std::endl;
 			break;
 		case (2):
 			std::cout << "tell a joke" <<
@@ -188,8 +190,22 @@ void ScavTrap::challengeNewcomer()
 			RESET << std::endl;
 			break;
 		case (3):
-			std::cout << "become a pick-up artist" << RESET << std::endl;
-			std::cout << ITALICS << "Hey, baby! Wanna kill all humans?" << RESET << std::endl;
+			std::cout << "tell the recipe for pancakes" << RESET << std::endl;
+			std::cout << ITALICS << "INGREDIENTS:" << std::endl << std::endl << "2 eggs" << std::endl <<
+			"2 glasses milk" << std::endl << "2,5 glasses flour" << std::endl << "3 tablespoons oil" <<
+			std::endl << "0.5-1 glass boiling water" << std::endl << "3 tablespoons sugar" << std::endl <<
+			"0.5 teaspoon baking soda" << std::endl << "0.5 teaspoon salt" << std::endl << std::endl <<
+			"1. Prepare all the necessary ingredients." << std::endl << std::endl <<
+			"2. Whisk the eggs together with sugar, salt and baking soda in a bowl." << std::endl <<
+			"   You can use an egg whisk." << std::endl << std::endl << "3. Add milk and mix everything thoroughly." <<
+			std::endl << std::endl << "4. Gradually sift the flour into the mixture." << std::endl <<
+			"   Beat the batter. It should be smooth." << std::endl << std::endl << "5. Now add oil." <<
+			std::endl << std::endl << "6. Then add some boiling water and mix everything quickly." << std::endl <<
+			"   The batter should resemble thick milk." << std::endl << std::endl <<
+			"7. Put the pan on the hob and heat some oil." << std::endl <<
+			"   To get thin pancakes, do not fill the ladle with batter to the top." << std::endl <<
+			"   Fry on both sides." << std::endl << std::endl << "8. Fry until golden." <<
+			std::endl << std::endl << "9. Serve the pancakes with jam. Enjoy!" << RESET << std::endl;
 			break;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 15:22:48 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 06:12:07 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/20 21:27:45 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ int main( void )
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;
+
+	std::cout << "a f is " << 1234.4321f << std::endl;
+	std::cout << "b f is " << 10 << std::endl;
+	std::cout << "c f is " << 42.42f << std::endl;
+	std::cout << "d f is " << 10 << std::endl;
 
 	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;

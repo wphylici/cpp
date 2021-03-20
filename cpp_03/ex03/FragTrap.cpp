@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 07:08:37 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/20 19:23:52 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ FragTrap::FragTrap()
 	this->_meleeAttackDamage = 30;
 	this->_rangedAttackDamage = 20;
 	this->_armorDamageReduction = 5;
-	this->_color = "\e[1;92m";
+	this->_color = BHI_GREEN;
 
 	usleep(300000);
 	std::cout << BHI_GREEN << std::endl << "*---------- FragTrap default constructor called ----------*" << std::endl;
@@ -90,7 +90,7 @@ FragTrap::FragTrap(std::string const Name)
 	this->_meleeAttackDamage = 30;
 	this->_rangedAttackDamage = 20;
 	this->_armorDamageReduction = 5;
-	this->_color = "\e[1;92m";
+	this->_color = BHI_GREEN;
 
 	usleep(300000);
 	std::cout << BHI_GREEN << std::endl << "*---------- FragTrap constructor called ----------*" << std::flush << std::endl;
@@ -155,6 +155,11 @@ FragTrap::~FragTrap()
 
 	std::cout << ITALICS << "I did my job and I'm very tired. I'm going to pass out now..." <<
 	RESET << std::endl;
+}
+
+std::string FragTrap::getColor()
+{
+	return (this->_color);
 }
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
