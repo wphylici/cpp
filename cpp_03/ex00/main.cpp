@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/09 06:48:03 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/15 20:24:34 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/18 21:39:35 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/20 06:12:21 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "FragTrap.hpp"
 
-# include <iostream>
-# include <cstdlib>
-# include <time.h>
+/*
+ * clang++ -g -Wall -Wextra -Werror -std=c++98 *.cpp
+ */
 
-# define BHI_RED	"\e[1;91m"
-# define RESET		"\e[0m"
-
-class Zombie
+int main()
 {
-	public:
-		Zombie();
-		void setName(std::string Name);
-		void setType(std::string Type);
-		void announce(void);
 
-	private:
-		std::string _name;
-		std::string _type;
-};
+	FragTrap Jakobs;
+	FragTrap Dan;
 
-#endif
+	Dan.rangedAttack("Inac");
+	Dan.meleeAttack("Cluck");
+
+	Dan.takeDamage(2);
+	Dan.takeDamage(50);
+	Dan.takeDamage(100);
+
+	Jakobs = Dan;
+
+	Jakobs.beRepaired(100);
+	Jakobs.vaulthunter_dot_exe("The Destroyer");
+
+	return (0);
+}

@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/09 06:48:03 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/15 20:24:34 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/16 13:38:31 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/18 19:19:45 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-# include <iostream>
-# include <cstdlib>
-# include <time.h>
+#include <iostream>
+#include <cmath>
 
-# define BHI_RED	"\e[1;91m"
-# define RESET		"\e[0m"
-
-class Zombie
+class Fixed
 {
 	public:
-		Zombie();
-		void setName(std::string Name);
-		void setType(std::string Type);
-		void announce(void);
+		Fixed();
+		Fixed(const int Num);
+		Fixed(const float Num);
+		Fixed(const Fixed &fixed);
+		~Fixed();
+		Fixed &operator = (const Fixed &fixed);
+		float toFloat(void) const;
+		int toInt(void) const;
 
 	private:
-		std::string _name;
-		std::string _type;
+		int	_num;
+		static const int _fractionalBits = 8;
 };
+
+std::ostream &operator << (std::ostream &out, Fixed const &fixed);
 
 #endif

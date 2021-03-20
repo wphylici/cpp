@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/09 06:48:03 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/15 20:24:34 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/16 04:04:42 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/16 04:08:01 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Fixed.hpp"
 
-# include <iostream>
-# include <cstdlib>
-# include <time.h>
+/*
+ * clang++ -g -Wall -Wextra -Werror -std=c++98 *.cpp
+ */
 
-# define BHI_RED	"\e[1;91m"
-# define RESET		"\e[0m"
-
-class Zombie
+int main(void)
 {
-	public:
-		Zombie();
-		void setName(std::string Name);
-		void setType(std::string Type);
-		void announce(void);
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
 
-	private:
-		std::string _name;
-		std::string _type;
-};
+	c = b;
 
-#endif
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+
+	return (0);
+}

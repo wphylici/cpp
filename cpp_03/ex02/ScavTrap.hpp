@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/09 06:48:03 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/15 20:24:34 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/18 06:52:47 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/20 07:44:08 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef ScavTrap_HPP
+# define ScavTrap_HPP
 
-# include <iostream>
-# include <cstdlib>
-# include <time.h>
+# include "ClapTrap.hpp"
 
-# define BHI_RED	"\e[1;91m"
-# define RESET		"\e[0m"
-
-class Zombie
+class ScavTrap : public ClapTrap
 {
 	public:
-		Zombie();
-		void setName(std::string Name);
-		void setType(std::string Type);
-		void announce(void);
-
-	private:
-		std::string _name;
-		std::string _type;
+		ScavTrap();
+		ScavTrap(std::string const Name);
+		ScavTrap(const ScavTrap &scav_trap);
+		ScavTrap &operator = (const ScavTrap &frag_trap);
+		~ScavTrap();
+		unsigned int getHitPoints();
+		void Born();
+		void challengeNewcomer();
 };
 
 #endif
