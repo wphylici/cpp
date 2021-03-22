@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 16:04:38 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/22 13:15:48 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void FragTrap::Born()
 	size_t progress = 1;
 
 	std::cout << BHI_YELLOW << "Сhecking software status";
-	for(int t = 0; t < 3; t++)
+	for(int t = 0; t < 2; t++)
     {
         usleep(200000);
         std::cout << "." << std::flush;
@@ -42,7 +42,7 @@ void FragTrap::Born()
 		std::cout << HI_GREEN << Bar.replace(progress++, 2, "->") << "\033[0G" <<
 		Bar.replace(Bar.size() - buf.str().size() - 1, buf.str().size(),
 		buf.str()) << std::flush << RESET << std::endl;
-		usleep(30000);
+		usleep(20000);
 		buf.str("");
 	}
 }

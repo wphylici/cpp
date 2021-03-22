@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SuperTrap.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 14:55:34 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 21:16:57 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/22 11:06:56 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ SuperTrap::SuperTrap()
 {
 	std::cout << BHI_CYAN << std::endl << "*---------- SuperTrap default constructor called ----------*";
 
-	this->_hitPoints = FragTrap::_hitPoints;
-	this->_maxHitPoints = FragTrap::_maxHitPoints;
-	this->_energyPoints = NinjaTrap::_energyPoints;
-	this->_maxEnergyPoints = NinjaTrap::_maxEnergyPoints;
+	this->_hitPoints = 100;
+	this->_maxHitPoints = 100;
+	this->_energyPoints = 120;
+	this->_maxEnergyPoints = 120;
 	this->_level = 1;
 	this->_name = "<Name not set>";
-	this->_meleeAttackDamage = NinjaTrap::_meleeAttackDamage;
-	this->_rangedAttackDamage = FragTrap::_rangedAttackDamage;
-	this->_armorDamageReduction = FragTrap::_armorDamageReduction;
+	this->_meleeAttackDamage = 60;
+	this->_rangedAttackDamage = 20;
+	this->_armorDamageReduction = 5;
 	this->_color = BHI_CYAN;
 }
 
@@ -32,28 +32,28 @@ SuperTrap::SuperTrap(std::string const Name)
 {
 	std::cout << std::endl << BHI_CYAN << "*---------- SuperTrap constructor called ----------*";
 
-	// this->_hitPoints = FragTrap::_hitPoints;
-	// this->_maxHitPoints = FragTrap::_maxHitPoints;
-	// this->_energyPoints = NinjaTrap::_energyPoints;
-	// this->_maxEnergyPoints = NinjaTrap::_maxEnergyPoints;
-	// this->_level = 1;
-	// this->_name = Name;
-	// this->_meleeAttackDamage = NinjaTrap::_meleeAttackDamage;
-	// this->_rangedAttackDamage = FragTrap::_rangedAttackDamage;
-	// this->_armorDamageReduction = FragTrap::_armorDamageReduction;
-	// this->_color = BHI_CYAN;
+	this->_hitPoints = 100;
+	this->_maxHitPoints = 100;
+	this->_energyPoints = 120;
+	this->_maxEnergyPoints = 120;
+	this->_level = 1;
+	this->_name = Name;
+	this->_meleeAttackDamage = 60;
+	this->_rangedAttackDamage = 20;
+	this->_armorDamageReduction = 5;
+	this->_color = BHI_CYAN;
 
-	std::cout << BHI_YELLOW << std::endl << "Param:" << std::endl;
+	std::cout << BHI_YELLOW << std::endl << "Param:" << RESET << std::endl << std::endl;
 
-	std::cout << "hitPoints: " << this->_hitPoints << std::endl;
-	std::cout << "maxHitPoints: " << this->_maxHitPoints << std::endl;
-	std::cout << "energyPoints: " << this->_energyPoints << std::endl;
-	std::cout << "maxEnergyPoints: " << this->_maxEnergyPoints << std::endl;
-	std::cout << "level: " << this->_level << std::endl;
-	std::cout << "name: " << this->_name << std::endl;
-	std::cout << "meleeAttackDamage: " << this->_meleeAttackDamage << std::endl;
-	std::cout << "rangedAttackDamage: "  << this->_rangedAttackDamage << std::endl;
-	std::cout << "armorDamageReduction: " << this->_armorDamageReduction << std::endl;
+	std::cout << " hitPoints: " << this->_hitPoints << std::endl;
+	std::cout << " maxHitPoints: " << this->_maxHitPoints << std::endl;
+	std::cout << " energyPoints: " << this->_energyPoints << std::endl;
+	std::cout << " maxEnergyPoints: " << this->_maxEnergyPoints << std::endl;
+	std::cout << " level: " << this->_level << std::endl;
+	std::cout << " name: " << this->_name << std::endl;
+	std::cout << " meleeAttackDamage: " << this->_meleeAttackDamage << std::endl;
+	std::cout << " rangedAttackDamage: "  << this->_rangedAttackDamage << std::endl;
+	std::cout << " armorDamageReduction: " << this->_armorDamageReduction << std::endl;
 
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 16:03:38 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/22 13:21:10 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void ScavTrap::Born()
 	size_t progress = 1;
 
 	std::cout << BHI_YELLOW << "Boting";
-	for(int t = 0; t < 3; t++)
+	for(int t = 0; t < 2; t++)
     {
         usleep(200000);
         std::cout << "." << std::flush;
@@ -42,7 +42,7 @@ void ScavTrap::Born()
 		std::cout << HI_BLUE << Bar.replace(progress++, 2, "->") << "\033[0G" <<
 		Bar.replace(Bar.size() - buf.str().size() - 1, buf.str().size(),
 		buf.str()) << std::flush << RESET << std::endl;
-		usleep(30000);
+		usleep(20000);
 		buf.str("");
 	}
 }
@@ -57,7 +57,7 @@ ScavTrap::ScavTrap()
 	this->_name = "<Name no set>";
 	this->_meleeAttackDamage = 20;
 	this->_rangedAttackDamage = 15;
-	this->_armorDamageReduction = 0;
+	this->_armorDamageReduction = 3;
 	this->_color = BHI_BLUE;
 
 	usleep(300000);
@@ -89,7 +89,7 @@ ScavTrap::ScavTrap(std::string const Name)
 	this->_name = Name;
 	this->_meleeAttackDamage = 20;
 	this->_rangedAttackDamage = 15;
-	this->_armorDamageReduction = 0;
+	this->_armorDamageReduction = 3;
 	this->_color = BHI_BLUE;
 
 	usleep(300000);

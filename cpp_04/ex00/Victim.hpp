@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Victim.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/18 21:39:35 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/22 13:12:23 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/22 20:06:46 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/22 20:25:58 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include <iostream>
 
-/*
- * clang++ -g -Wall -Wextra -Werror -std=c++98 *.cpp
- */
-
-int main()
+class Victim
 {
+	public:
+		Victim();
+		Victim(std::string const Name);
+		Victim(const Victim &sorcerer);
+		Victim &operator = (const Victim &victim);
+		~Victim();
+		std::string getName() const;
+		std::string getTitle() const;
 
-	FragTrap Jakobs;
-	FragTrap Dan;
+	private:
+		std::string _name;
+		std::string _title;
+};
 
-	Dan.rangedAttack("Inac");
-	Dan.meleeAttack("Cluck");
-
-	Dan.takeDamage(2);
-	Dan.takeDamage(50);
-	Dan.takeDamage(100);
-
-	Jakobs = Dan;
-
-	Jakobs.beRepaired(100);
-	Jakobs.vaulthunter_dot_exe("The Destroyer");
-
-	return (0);
-}
+std::ostream &operator << (std::ostream &out, Victim const &victim);

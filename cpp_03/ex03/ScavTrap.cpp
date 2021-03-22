@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 16:01:32 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/22 13:22:42 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ ScavTrap::ScavTrap(std::string const Name)
 	this->_name = Name;
 	this->_meleeAttackDamage = 20;
 	this->_rangedAttackDamage = 15;
-	this->_armorDamageReduction = 0;
+	this->_armorDamageReduction = 3;
 	this->_color = BHI_BLUE;
 
 	usleep(300000);
