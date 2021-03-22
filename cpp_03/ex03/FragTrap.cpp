@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 19:23:52 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 17:42:24 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void FragTrap::Born()
 	size_t progress = 1;
 
 	std::cout << BHI_YELLOW << "Сhecking software status";
-	for(int t = 0; t < 3; t++)
+	for(int t = 0; t < 2; t++)
     {
         usleep(200000);
         std::cout << "." << std::flush;
@@ -42,7 +42,7 @@ void FragTrap::Born()
 		std::cout << HI_GREEN << Bar.replace(progress++, 2, "->") << "\033[0G" <<
 		Bar.replace(Bar.size() - buf.str().size() - 1, buf.str().size(),
 		buf.str()) << std::flush << RESET << std::endl;
-		usleep(30000);
+		usleep(20000);
 		buf.str("");
 	}
 }
@@ -73,13 +73,13 @@ FragTrap::FragTrap()
 	std::cout << ITALICS << "Hello! I am your new steward bot." << std::endl << "My name is "
 	<< this->_name << "." << std::endl << "Designation: FR4G-TP, Hyperion Robot, Class C." <<
 	std::endl << "Appointment: protect humanity." << RESET << std::endl;
-	std::cout << std::endl << "Press Enter";
-	std::string str;
-	getline(std::cin, str);
-	std::cout << "\033[2A";
+	// std::cout << std::endl << "Press Enter";
+	// std::string str;
+	// getline(std::cin, str);
+	// std::cout << "\033[2A";
 }
 
-FragTrap::FragTrap(std::string const Name)
+FragTrap::FragTrap(std::string const Name) : ClapTrap(Name)
 {
 	this->_hitPoints = 100;
 	this->_maxHitPoints = 100;
@@ -99,16 +99,16 @@ FragTrap::FragTrap(std::string const Name)
 	usleep(300000);
 
 	std::cout << "\033[2A" << "\033[K" << BHI_GREEN << "Done!" << std::flush << "\033[2B" << "\033[0G";
-	usleep(600000);
+	usleep(300000);
 	std::cout << "Booting sequence complete." << RESET << std::flush << std::endl <<std::endl;
-	usleep(600000);
+	usleep(300000);
 	std::cout << ITALICS << "Hello! I am your new steward bot." << std::endl << "My name is "
 	<< this->_name << "." << std::endl << "Designation: FR4G-TP, Hyperion Robot, Class C." <<
 	std::endl << "Appointment: protect humanity." << RESET << std::endl;
-	std::cout << std::endl << "Press Enter";
-	std::string str;
-	getline(std::cin, str);
-	std::cout << "\033[2A";
+	// std::cout << std::endl << "Press Enter";
+	// std::string str;
+	// getline(std::cin, str);
+	// std::cout << "\033[2A";
 }
 
 FragTrap::FragTrap(const FragTrap &frag_trap)
@@ -135,6 +135,8 @@ FragTrap& FragTrap::operator = (const FragTrap &frag_trap)
 	std::cout << BHI_YELLOW << "Сloning completed successfully." << RESET << std::endl;
 	std::cout << ITALICS << "I am a divine copy of the original!" << std::endl;
 
+	if (this == &frag_trap)
+		return (*this);
 	this->_hitPoints = frag_trap._hitPoints;
 	this->_maxHitPoints = frag_trap._maxHitPoints;
 	this->_energyPoints = frag_trap._energyPoints;

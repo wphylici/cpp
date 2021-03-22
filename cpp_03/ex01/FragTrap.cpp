@@ -6,7 +6,7 @@
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 06:30:39 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:04:38 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ FragTrap& FragTrap::operator = (const FragTrap &frag_trap)
 	std::cout << BHI_YELLOW << "Сloning completed successfully." << RESET << std::endl;
 	std::cout << ITALICS << "I am a divine copy of the original!" << std::endl;
 
+	if (this == &frag_trap)
+		return (*this);
 	this->_hitPoints = frag_trap._hitPoints;
 	this->_maxHitPoints = frag_trap._maxHitPoints;
 	this->_energyPoints = frag_trap._energyPoints;

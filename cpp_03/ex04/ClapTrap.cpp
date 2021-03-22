@@ -6,7 +6,7 @@
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 06:45:27 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 16:02:34 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 20:53:50 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,15 @@ ClapTrap::~ClapTrap()
 	std::cout << BHI_PURPLE << std::endl << "*---------- ClapTrap destructor called ----------*" << std::flush << std::endl;
 }
 
+std::string ClapTrap::getColor()
+{
+	return (this->_color);
+}
+
 void ClapTrap::rangedAttack(std::string const &target)
 {
 
-	std::cout << std::endl << this->_color << "*---------- rangedAttack called ----------*" << std::endl;
+	std::cout << std::endl << _color << "*---------- rangedAttack called ----------*" << std::endl;
 	std::cout << BHI_YELLOW << "CL4P-TP "<< this->_name << " attacks " << target << " at range, causing " <<
 	this->_rangedAttackDamage << " points of damage!" << RESET << std::endl;
 

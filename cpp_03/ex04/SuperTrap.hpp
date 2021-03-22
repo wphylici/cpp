@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 13:38:31 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 22:09:29 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/21 14:55:04 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/21 18:44:20 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef SUPERTRAP_HPP
+# define SUPERTRAP_HPP
 
 #include <iostream>
-#include <cmath>
 
-class Fixed
+#include "FragTrap.hpp"
+#include "NinjaTrap.hpp"
+
+class SuperTrap : virtual public FragTrap, virtual public NinjaTrap
 {
 	public:
-		Fixed();
-		Fixed(const int Num);
-		Fixed(const float Num);
-		Fixed(const Fixed &fixed);
-		~Fixed();
-		Fixed &operator = (const Fixed &fixed);
-		float toFloat(void) const;
-		int toInt(void) const;
-
-	private:
-		int	_num;
-		static const int _fractionalBits = 8;
+		SuperTrap();
+		SuperTrap(std::string const Name);
+		SuperTrap(const SuperTrap &super_trap);
+		SuperTrap &operator = (const SuperTrap &super_trap);
+		~SuperTrap();
+		void meleeAttack(std::string const &target);
+		void rangedAttack(std::string const &target);
 };
 
-std::ostream &operator << (std::ostream &out, Fixed const &fixed);
+
 
 #endif

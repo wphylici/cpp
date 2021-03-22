@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:14:18 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 21:22:44 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 22:10:47 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ Fixed::Fixed(const float Num)
 	this->_num = roundf(Num * (1 << this->_fractionalBits));
 }
 
-Fixed::Fixed(const Fixed &fixed) : _num(fixed._num)
+Fixed::Fixed(const Fixed &fixed)
 {
+	*this = fixed;
 	std::cout << "Copy constructor called" << std::endl;
 }
 

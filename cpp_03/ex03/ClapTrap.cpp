@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 06:45:27 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 19:20:54 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:02:14 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ ClapTrap& ClapTrap::operator = (const ClapTrap &clap_trap)
 {
 	std::cout << BHI_PURPLE << std::endl << "*---------- ClapTrap copy assignation operator called ----------*" << std::flush << std::endl;
 
+	if (this == &clap_trap)
+		return (*this);
 	this->_hitPoints = clap_trap._hitPoints;
 	this->_maxHitPoints = clap_trap._maxHitPoints;
 	this->_energyPoints = clap_trap._energyPoints;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 19:23:24 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:01:32 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void ScavTrap::Born()
 	size_t progress = 1;
 
 	std::cout << BHI_YELLOW << "Boting";
-	for(int t = 0; t < 3; t++)
+	for(int t = 0; t < 2; t++)
     {
         usleep(200000);
         std::cout << "." << std::flush;
@@ -42,7 +42,7 @@ void ScavTrap::Born()
 		std::cout << HI_BLUE << Bar.replace(progress++, 2, "->") << "\033[0G" <<
 		Bar.replace(Bar.size() - buf.str().size() - 1, buf.str().size(),
 		buf.str()) << std::flush << RESET << std::endl;
-		usleep(30000);
+		usleep(20000);
 		buf.str("");
 	}
 }
@@ -67,16 +67,16 @@ ScavTrap::ScavTrap()
 	usleep(300000);
 
 	std::cout << "\033[2A" << "\033[K" << BHI_BLUE << "Done!" << std::flush << "\033[2B" << "\033[0G";
-	usleep(600000);
+	usleep(300000);
 	std::cout << "Booting sequence complete." << RESET << std::flush << std::endl <<std::endl;
-	usleep(600000);
+	usleep(300000);
 	std::cout << ITALICS << "Greetings! I operates in service to a scav gang." << std::endl << "My name is "
 	<< this->_name << "." << std::endl << "Designation: SC4V-TP" <<
 	std::endl << "Race: Robots" << RESET << std::endl;
-	std::cout << std::endl << "Press Enter";
-	std::string str;
-	getline(std::cin, str);
-	std::cout << "\033[2A";
+	// std::cout << std::endl << "Press Enter";
+	// std::string str;
+	// getline(std::cin, str);
+	// std::cout << "\033[2A";
 }
 
 ScavTrap::ScavTrap(std::string const Name)
@@ -99,16 +99,16 @@ ScavTrap::ScavTrap(std::string const Name)
 	usleep(300000);
 
 	std::cout << "\033[2A" << "\033[K" << BHI_BLUE << "Done!" << std::flush << "\033[2B" << "\033[0G";
-	usleep(600000);
+	usleep(300000);
 	std::cout << "Booting sequence complete." << RESET << std::flush << std::endl <<std::endl;
-	usleep(600000);
+	usleep(300000);
 	std::cout << ITALICS << "Greetings! I operates in service to a scav gang." << std::endl << "My name is "
 	<< this->_name << "." << std::endl << "Designation: SC4V-TP" <<
 	std::endl << "Race: Robots" << RESET << std::endl;
-	std::cout << std::endl << "Press Enter";
-	std::string str;
-	getline(std::cin, str);
-	std::cout << "\033[2A";
+	// std::cout << std::endl << "Press Enter";
+	// std::string str;
+	// getline(std::cin, str);
+	// std::cout << "\033[2A";
 }
 
 ScavTrap::ScavTrap(const ScavTrap &scav_trap)
@@ -135,6 +135,8 @@ ScavTrap& ScavTrap::operator = (const ScavTrap &scav_trap)
 	std::cout << BHI_YELLOW << "Сloning completed successfully." << RESET << std::endl;
 	std::cout << ITALICS << "Why can't I remember my past?" << std::endl;
 
+	if (this == &scav_trap)
+		return (*this);
 	this->_hitPoints = scav_trap._hitPoints;
 	this->_maxHitPoints = scav_trap._maxHitPoints;
 	this->_energyPoints = scav_trap._energyPoints;

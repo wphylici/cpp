@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 13:38:31 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 22:09:29 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/18 06:52:47 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/21 18:48:08 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-#include <iostream>
-#include <cmath>
+# include "ClapTrap.hpp"
 
-class Fixed
+class FragTrap : virtual public ClapTrap
 {
 	public:
-		Fixed();
-		Fixed(const int Num);
-		Fixed(const float Num);
-		Fixed(const Fixed &fixed);
-		~Fixed();
-		Fixed &operator = (const Fixed &fixed);
-		float toFloat(void) const;
-		int toInt(void) const;
-
-	private:
-		int	_num;
-		static const int _fractionalBits = 8;
+		FragTrap();
+		FragTrap(std::string const Name);
+		FragTrap(const FragTrap &frag_trap);
+		FragTrap &operator = (const FragTrap &frag_trap);
+		~FragTrap();
+		std::string getColor();
+		void vaulthunter_dot_exe(std::string const &target);
 };
-
-std::ostream &operator << (std::ostream &out, Fixed const &fixed);
 
 #endif

@@ -5,35 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 15:22:48 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 21:43:03 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/18 21:39:35 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/21 20:14:59 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "SuperTrap.hpp"
 
 /*
  * clang++ -g -Wall -Wextra -Werror -std=c++98 *.cpp
  */
 
-int main( void )
+int main()
 {
-	Fixed a;
-	Fixed const b(10);
-	Fixed const c(42.42f);
-	Fixed const d(b);
+	SuperTrap Johny("Johny");
 
-	a = Fixed(1234.4321f);
+	Johny.meleeAttack("enemy");
+	Johny.rangedAttack("enemy");
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-
-	return 0;
+	return (0);
 }

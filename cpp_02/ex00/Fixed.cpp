@@ -6,15 +6,22 @@
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 19:16:23 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/16 04:13:54 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 22:21:17 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _rawBits(0)
+Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
+	this->_rawBits = 0;
+}
+
+Fixed::Fixed(const Fixed &fixed)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = fixed;
 }
 
 Fixed::~Fixed()
@@ -22,12 +29,10 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &fixed) : _rawBits(fixed._rawBits) {}
-
 Fixed &Fixed::operator = (const Fixed &fixed)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	this->_rawBits = fixed._rawBits;
+	setRawBits(fixed.getRawBits());
 	return (*this);
 }
 

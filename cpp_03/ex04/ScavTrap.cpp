@@ -6,7 +6,7 @@
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 16:04:56 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 18:27:16 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void ScavTrap::Born()
 	size_t progress = 1;
 
 	std::cout << BHI_YELLOW << "Boting";
-	for(int t = 0; t < 3; t++)
+	for(int t = 0; t < 2; t++)
     {
         usleep(200000);
         std::cout << "." << std::flush;
@@ -42,7 +42,7 @@ void ScavTrap::Born()
 		std::cout << HI_BLUE << Bar.replace(progress++, 2, "->") << "\033[0G" <<
 		Bar.replace(Bar.size() - buf.str().size() - 1, buf.str().size(),
 		buf.str()) << std::flush << RESET << std::endl;
-		usleep(30000);
+		usleep(20000);
 		buf.str("");
 	}
 }
@@ -58,6 +58,7 @@ ScavTrap::ScavTrap()
 	this->_meleeAttackDamage = 20;
 	this->_rangedAttackDamage = 15;
 	this->_armorDamageReduction = 0;
+	this->_color = BHI_BLUE;
 
 	usleep(300000);
 	std::cout << BHI_BLUE << std::endl << "*---------- ScavTrap default constructor called ----------*" << std::endl;
@@ -66,16 +67,16 @@ ScavTrap::ScavTrap()
 	usleep(300000);
 
 	std::cout << "\033[2A" << "\033[K" << BHI_BLUE << "Done!" << std::flush << "\033[2B" << "\033[0G";
-	usleep(600000);
+	usleep(300000);
 	std::cout << "Booting sequence complete." << RESET << std::flush << std::endl <<std::endl;
-	usleep(600000);
+	usleep(300000);
 	std::cout << ITALICS << "Greetings! I operates in service to a scav gang." << std::endl << "My name is "
 	<< this->_name << "." << std::endl << "Designation: SC4V-TP" <<
 	std::endl << "Race: Robots" << RESET << std::endl;
-	std::cout << std::endl << "Press Enter";
-	std::string str;
-	getline(std::cin, str);
-	std::cout << "\033[2A";
+	// std::cout << std::endl << "Press Enter";
+	// std::string str;
+	// getline(std::cin, str);
+	// std::cout << "\033[2A";
 }
 
 ScavTrap::ScavTrap(std::string const Name)
@@ -89,6 +90,7 @@ ScavTrap::ScavTrap(std::string const Name)
 	this->_meleeAttackDamage = 20;
 	this->_rangedAttackDamage = 15;
 	this->_armorDamageReduction = 0;
+	this->_color = BHI_BLUE;
 
 	usleep(300000);
 	std::cout << BHI_BLUE << std::endl << "*---------- ScavTrap constructor called ----------*" << std::flush << std::endl;
@@ -97,16 +99,16 @@ ScavTrap::ScavTrap(std::string const Name)
 	usleep(300000);
 
 	std::cout << "\033[2A" << "\033[K" << BHI_BLUE << "Done!" << std::flush << "\033[2B" << "\033[0G";
-	usleep(600000);
+	usleep(300000);
 	std::cout << "Booting sequence complete." << RESET << std::flush << std::endl <<std::endl;
-	usleep(600000);
+	usleep(300000);
 	std::cout << ITALICS << "Greetings! I operates in service to a scav gang." << std::endl << "My name is "
 	<< this->_name << "." << std::endl << "Designation: SC4V-TP" <<
 	std::endl << "Race: Robots" << RESET << std::endl;
-	std::cout << std::endl << "Press Enter";
-	std::string str;
-	getline(std::cin, str);
-	std::cout << "\033[2A";
+	// std::cout << std::endl << "Press Enter";
+	// std::string str;
+	// getline(std::cin, str);
+	// std::cout << "\033[2A";
 }
 
 ScavTrap::ScavTrap(const ScavTrap &scav_trap)
@@ -124,6 +126,7 @@ ScavTrap::ScavTrap(const ScavTrap &scav_trap)
 	this->_meleeAttackDamage = scav_trap._meleeAttackDamage;
 	this->_rangedAttackDamage = scav_trap._rangedAttackDamage;
 	this->_armorDamageReduction = scav_trap._armorDamageReduction;
+	this->_color = scav_trap._color;
 }
 
 ScavTrap& ScavTrap::operator = (const ScavTrap &scav_trap)
@@ -143,6 +146,7 @@ ScavTrap& ScavTrap::operator = (const ScavTrap &scav_trap)
 	this->_meleeAttackDamage = scav_trap._meleeAttackDamage;
 	this->_rangedAttackDamage = scav_trap._rangedAttackDamage;
 	this->_armorDamageReduction = scav_trap._armorDamageReduction;
+	this->_color = scav_trap._color;
 
 	return (*this);
 }
@@ -155,75 +159,16 @@ ScavTrap::~ScavTrap()
 	RESET << std::endl;
 }
 
+std::string ScavTrap::getColor()
+{
+	return (this->_color);
+}
+
 unsigned int ScavTrap::getHitPoints()
 {
 	std::cout << std::endl << BHI_BLUE << "*---------- ScavTrap getHitPoints called ----------*" << std::endl;
 	std::cout << BHI_YELLOW << "Has " << this->_hitPoints << " health points." << RESET << std::endl;
 	return (this->_hitPoints);
-}
-
-void ScavTrap::rangedAttack(std::string const &target)
-{
-
-	std::cout << std::endl << BHI_BLUE << "*---------- rangedAttack called ----------*" << std::endl;
-	std::cout << BHI_YELLOW << "SC4V-TP "<< this->_name << " attacks " << target << " at range, causing " <<
-	this->_rangedAttackDamage << " points of damage!" << RESET << std::endl;
-
-	std::cout << ITALICS << "Up close and personal." << RESET << std::endl;
-}
-
-void ScavTrap::meleeAttack(std::string const &target)
-{
-	std::cout << std::endl << BHI_BLUE << "*---------- meleeAttack called ----------*" << std::endl;
-	std::cout << BHI_YELLOW << "SC4V-TP "<< this->_name << " attacks " << target << " at melee, causing " <<
-	this->_meleeAttackDamage << " points of damage!" << RESET << std::endl;
-
-	std::cout << ITALICS << "I have gaskets tougher than you!" << RESET <<
-	std::endl;
-}
-
-void ScavTrap::takeDamage(unsigned int amount)
-{
-	std::cout << std::endl << BHI_BLUE << "*---------- takeDamage called ----------*";
-	std::cout << std::endl << BHI_YELLOW << "Received " << amount << " point of damage." <<
-	RESET << std::endl;
-
-	if (amount < this->_armorDamageReduction)
-	{
-		std::cout << ITALICS << "A claptrap feels no pain- ow! Quit it!" << RESET << std::endl;
-		return ;
-	}
-	amount -= this->_armorDamageReduction;
-	if (amount >= this->_hitPoints)
-	{
-		std::cout << ITALICS << "I see three flashing red lights..." <<
-		RESET << std::endl;
-		this->_hitPoints = 0;
-		return ;
-	}
-	if (amount < this->_hitPoints)
-	{
-		this->_hitPoints -= amount;
-		std::cout << ITALICS << "Oh my God, I'm leaking! I think I'm leaking! Ahhhh, I'm leaking! There's oil everywhere!" RESET << std::endl;
-		return ;
-	}
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	std::cout << std::endl << BHI_BLUE << "*---------- beRepaired called ----------*";
-	if (amount >= this->_maxHitPoints || this->_hitPoints + amount >= 100)
-	{
-		std::cout << std::endl << BHI_YELLOW << "Hit points are fully restored." <<
-		RESET << std::endl;
-		std::cout << ITALICS << "Good as new, I think. Am I leaking?" << std::endl;
-		this->_hitPoints = this->_maxHitPoints;
-		return ;
-	}
-	this->_hitPoints += amount;
-	std::cout << std::endl << BHI_YELLOW << "Restored " << amount << " hit points." <<
-	RESET << std::endl;
-	std::cout << ITALICS << "Hahahahaha! The best medicament is a little machine oil." << std::endl;
 }
 
 void ScavTrap::challengeNewcomer()

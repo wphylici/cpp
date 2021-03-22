@@ -6,49 +6,16 @@
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/21 16:03:08 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 18:58:33 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-void FragTrap::Born()
-{
-	std::string Bar = "[                                             ]      %";
-	size_t progress = 1;
-
-	std::cout << BHI_YELLOW << "Сhecking software status";
-	for(int t = 0; t < 3; t++)
-    {
-        usleep(200000);
-        std::cout << "." << std::flush;
-        usleep(200000);
-        std::cout << "." << std::flush;
-        usleep(200000);
-        std::cout << "." << std::flush;
-        usleep(200000);
-        std::cout << "\b\b\b   \b\b\b" << std::flush;
-	}
-	std::cout << "\033[0G" << "\033[K" << "Booting..." << RESET << std::endl
-	<< std::endl;
-	std::ostringstream buf;
-	double coef = (100 * 1.0) / ((int)Bar.size() - 10);
-	double percent = 0;
-	for (int i = 1; i < (int)Bar.size() - 9; i++)
-	{
-		std::cout << "\033[1A";
-		percent += coef;
-		buf << std::fixed << std::setprecision(2) << percent;
-		std::cout << HI_GREEN << Bar.replace(progress++, 2, "->") << "\033[0G" <<
-		Bar.replace(Bar.size() - buf.str().size() - 1, buf.str().size(),
-		buf.str()) << std::flush << RESET << std::endl;
-		usleep(30000);
-		buf.str("");
-	}
-}
-
 FragTrap::FragTrap()
 {
+	std::cout << BHI_GREEN << std::endl << "*---------- FragTrap default constructor called ----------*" << std::endl;
+
 	this->_hitPoints = 100;
 	this->_maxHitPoints = 100;
 	this->_energyPoints = 100;
@@ -59,28 +26,12 @@ FragTrap::FragTrap()
 	this->_rangedAttackDamage = 20;
 	this->_armorDamageReduction = 5;
 	this->_color = BHI_GREEN;
-
-	usleep(300000);
-	std::cout << BHI_GREEN << std::endl << "*---------- FragTrap default constructor called ----------*" << std::endl;
-	usleep(300000);
-	Born();
-	usleep(300000);
-
-	std::cout << "\033[2A" << "\033[K" << BHI_GREEN << "Done!" << std::flush << "\033[2B" << "\033[0G";
-	usleep(600000);
-	std::cout << "Booting sequence complete." << RESET << std::flush << std::endl <<std::endl;
-	usleep(600000);
-	std::cout << ITALICS << "Hello! I am your new steward bot." << std::endl << "My name is "
-	<< this->_name << "." << std::endl << "Designation: FR4G-TP, Hyperion Robot, Class C." <<
-	std::endl << "Appointment: protect humanity." << RESET << std::endl;
-	std::cout << std::endl << "Press Enter";
-	std::string str;
-	getline(std::cin, str);
-	std::cout << "\033[2A";
 }
 
 FragTrap::FragTrap(std::string const Name)
 {
+	std::cout << BHI_GREEN << std::endl << "*---------- FragTrap constructor called ----------*" << std::flush << std::endl;
+
 	this->_hitPoints = 100;
 	this->_maxHitPoints = 100;
 	this->_energyPoints = 100;
@@ -91,31 +42,12 @@ FragTrap::FragTrap(std::string const Name)
 	this->_rangedAttackDamage = 20;
 	this->_armorDamageReduction = 5;
 	this->_color = BHI_GREEN;
-
-	usleep(300000);
-	std::cout << BHI_GREEN << std::endl << "*---------- FragTrap constructor called ----------*" << std::flush << std::endl;
-	usleep(300000);
-	Born();
-	usleep(300000);
-
-	std::cout << "\033[2A" << "\033[K" << BHI_GREEN << "Done!" << std::flush << "\033[2B" << "\033[0G";
-	usleep(600000);
-	std::cout << "Booting sequence complete." << RESET << std::flush << std::endl <<std::endl;
-	usleep(600000);
-	std::cout << ITALICS << "Hello! I am your new steward bot." << std::endl << "My name is "
-	<< this->_name << "." << std::endl << "Designation: FR4G-TP, Hyperion Robot, Class C." <<
-	std::endl << "Appointment: protect humanity." << RESET << std::endl;
-	std::cout << std::endl << "Press Enter";
-	std::string str;
-	getline(std::cin, str);
-	std::cout << "\033[2A";
 }
 
 FragTrap::FragTrap(const FragTrap &frag_trap)
 {
 	std::cout << BHI_GREEN << std::endl << "*---------- FragTrap copy constructor called ----------*" << RESET << std::endl;
 	std::cout << BHI_YELLOW << "Сloning completed successfully." << RESET << std::endl;
-	std::cout << ITALICS << "I am a divine copy of the original!" << std::endl;
 
 	this->_hitPoints = frag_trap._hitPoints;
 	this->_maxHitPoints = frag_trap._maxHitPoints;
@@ -133,7 +65,6 @@ FragTrap& FragTrap::operator = (const FragTrap &frag_trap)
 {
 	std::cout << std::endl << BHI_GREEN << "*---------- FragTrap assignation operator called ----------*" << RESET << std::endl;
 	std::cout << BHI_YELLOW << "Сloning completed successfully." << RESET << std::endl;
-	std::cout << ITALICS << "I am a divine copy of the original!" << std::endl;
 
 	if (this == &frag_trap)
 		return (*this);
@@ -154,9 +85,11 @@ FragTrap& FragTrap::operator = (const FragTrap &frag_trap)
 FragTrap::~FragTrap()
 {
 	std::cout << BHI_GREEN << std::endl << "*---------- FragTrap destructor called ----------*" << RESET << std::endl;
+}
 
-	std::cout << ITALICS << "I did my job and I'm very tired. I'm going to pass out now..." <<
-	RESET << std::endl;
+std::string FragTrap::getColor()
+{
+	return (this->_color);
 }
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)

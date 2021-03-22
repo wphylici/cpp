@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/20 19:24:19 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:03:38 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ ScavTrap& ScavTrap::operator = (const ScavTrap &scav_trap)
 	std::cout << BHI_YELLOW << "Сloning completed successfully." << RESET << std::endl;
 	std::cout << ITALICS << "Why can't I remember my past?" << std::endl;
 
+	if (this == &scav_trap)
+		return (*this);
 	this->_hitPoints = scav_trap._hitPoints;
 	this->_maxHitPoints = scav_trap._maxHitPoints;
 	this->_energyPoints = scav_trap._energyPoints;
