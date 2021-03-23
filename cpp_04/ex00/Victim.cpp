@@ -6,16 +6,11 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 20:06:54 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/22 20:52:39 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/23 17:52:50 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Victim.hpp"
-
-Victim::Victim()
-{
-	std::cout << "Some random victim called " << this->_name << " just appeared!" << std::endl;
-}
 
 Victim::Victim(std::string const Name) : _name(Name)
 {
@@ -40,13 +35,18 @@ std::string Victim::getName() const
 	return (this->_name);
 }
 
+Victim::~Victim()
+{
+	std::cout << "Victim " << this->_name << " just died for no apparent reason!" << std::endl;
+}
+
 std::ostream &operator << (std::ostream &out, Victim const &victim)
 {
-	out << "I'm " << victim.getName() << " and I like otters!";
+	out << "I'm " << victim.getName() << " and I like otters!" << std::endl;
 	return (out);
 }
 
-Victim::~Victim()
+void Victim::getPolymorphed() const
 {
-	std::cout << "Victim " << this->_name << " just died for no apparent reason!" << this->_title << ", is dead!" << std::endl;
+	std::cout << this->_name << " has been turned into a cute little sheep!" << std::endl;
 }

@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 20:06:46 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 17:44:31 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/23 20:10:20 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/23 20:18:58 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef POWERFIST_HPP
+# define POWERFIST_HPP
 
-#include <iostream>
+#include "AWeapon.hpp"
 
-class Victim
+class PowerFist : public AWeapon
 {
 	public:
-		Victim(std::string const Name);
-		Victim(const Victim &victim);
-		Victim &operator = (const Victim &victim);
-		~Victim();
-		std::string getName() const;
-		void getPolymorphed() const;
-
-	private:
-		Victim();
-		std::string _name;
+		PowerFist();
+		PowerFist(PowerFist const &powerfist);
+		~PowerFist();
+		PowerFist &operator = (PowerFist const &powerfist);
+		virtual void attack() const;
 };
-
-std::ostream &operator << (std::ostream &out, Victim const &victim);
 
 #endif

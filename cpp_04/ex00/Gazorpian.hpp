@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   Gazorpian.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 20:06:46 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 17:44:31 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/23 18:50:32 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/23 18:52:21 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef GAZORPIAN_HPP
+# define GAZORPIAN_HPP
 
-#include <iostream>
+# include "Victim.hpp"
 
-class Victim
+class Gazorpian : public Victim
 {
 	public:
-		Victim(std::string const Name);
-		Victim(const Victim &victim);
-		Victim &operator = (const Victim &victim);
-		~Victim();
+		Gazorpian(std::string const Name);
+		Gazorpian(const Gazorpian &gazorpian);
+		Gazorpian &operator = (const Gazorpian &gazorpian);
+		~Gazorpian();
 		std::string getName() const;
 		void getPolymorphed() const;
 
 	private:
-		Victim();
+		Gazorpian();
 		std::string _name;
 };
 
-std::ostream &operator << (std::ostream &out, Victim const &victim);
+std::ostream &operator << (std::ostream &out, Gazorpian const &peon);
 
 #endif

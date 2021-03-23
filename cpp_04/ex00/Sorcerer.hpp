@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 16:10:15 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/22 20:32:45 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/23 19:10:40 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define SORCERER_HPP
 
 # include <iostream>
+# include "Victim.hpp"
+# include "Peon.hpp"
+# include "Gazorpian.hpp"
 
 class Sorcerer
 {
@@ -24,6 +27,9 @@ class Sorcerer
 		~Sorcerer();
 		std::string getName() const;
 		std::string getTitle() const;
+		void polymorph(const Victim &v) const;
+		void polymorph(const Peon &v) const;
+		void polymorph(const Gazorpian &v) const;
 
 	private:
 		Sorcerer();

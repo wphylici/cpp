@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 20:06:46 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 17:44:31 by wphylici         ###   ########.fr       */
+/*   Created: 2021/03/23 16:49:33 by wphylici          #+#    #+#             */
+/*   Updated: 2021/03/23 19:06:52 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#include "Sorcerer.hpp"
+#include "Peon.hpp"
+#include "Gazorpian.hpp"
 
-#include <iostream>
-
-class Victim
+int main()
 {
-	public:
-		Victim(std::string const Name);
-		Victim(const Victim &victim);
-		Victim &operator = (const Victim &victim);
-		~Victim();
-		std::string getName() const;
-		void getPolymorphed() const;
+	Sorcerer robert("Robert", "the Magnificent");
+	Victim jim("Jimmy");
+	Peon joe("Joe");
+	Gazorpian mark("Mark");
 
-	private:
-		Victim();
-		std::string _name;
-};
+	std::cout << robert << jim << joe << mark;
 
-std::ostream &operator << (std::ostream &out, Victim const &victim);
-
-#endif
+	robert.polymorph(jim);
+	robert.polymorph(joe);
+	robert.polymorph(mark);
+	return 0;
+}

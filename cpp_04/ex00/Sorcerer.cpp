@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 16:19:45 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/22 20:52:46 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/23 19:10:18 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,27 @@ std::string Sorcerer::getName() const
 
 std::ostream &operator << (std::ostream &out, Sorcerer const &sorcerer)
 {
-	out << "I'm " << sorcerer.getName() << ", " << sorcerer.getTitle() << ", and I like ponies!";
+	out << "I'm " << sorcerer.getName() << ", " << sorcerer.getTitle() <<
+	", and I like ponies!" << std::endl;
 	return (out);
 }
 
 Sorcerer::~Sorcerer()
 {
-	std::cout << this->_name << ", " << this->_title << ", is dead!" << std::endl;
+	std::cout << this->_name << ", " << this->_title << ", is dead!. Consequences will never be the same!" << std::endl;
+}
+
+void Sorcerer::polymorph(const Victim &v) const
+{
+	v.getPolymorphed();
+}
+
+void Sorcerer::polymorph(const Peon &v) const
+{
+	v.getPolymorphed();
+}
+
+void Sorcerer::polymorph(const Gazorpian &v) const
+{
+	v.getPolymorphed();
 }
