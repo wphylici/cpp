@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 19:43:02 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 20:16:22 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/24 21:30:10 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ PlasmaRifle& PlasmaRifle::operator = (PlasmaRifle const &plasmarifle)
 	_name = plasmarifle._name;
 	_damagePoints = plasmarifle._damagePoints;
 	_APcost = plasmarifle._APcost;
+
+	return (*this);
 }
 
 void		PlasmaRifle::attack() const

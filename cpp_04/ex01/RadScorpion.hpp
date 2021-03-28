@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 22:53:59 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 22:55:29 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/28 00:50:16 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class RadScorpion : public Enemy
 	public:
 		RadScorpion();
 		RadScorpion(RadScorpion const &radscorpion);
-		~RadScorpion();
+		virtual ~RadScorpion();
 		RadScorpion &operator = (RadScorpion const &radscorpion);
 		virtual void takeDamage(int damage);
 };

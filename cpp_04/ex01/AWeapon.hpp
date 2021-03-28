@@ -6,14 +6,14 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 19:14:46 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 21:39:57 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/26 04:14:01 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AWEAPON_HPP
 # define AWEAPON_HPP
 
-#include <iostream>
+# include <iostream>
 
 class AWeapon
 {
@@ -30,10 +30,8 @@ class AWeapon
 
 	protected:
 		std::string _name;
-		int _damagePoints;
 		int _APcost;
+		int _damagePoints;
 };
-
-std::ostream &operator << (std::ostream &out, AWeapon const &aweapon);
 
 #endif

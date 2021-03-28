@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 21:30:57 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 22:46:11 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/26 04:16:29 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Enemy::Enemy(int hp, std::string const &type) : _HP(hp), _type(type)
 
 Enemy::Enemy(Enemy const &enemy)
 {
-	*this = src;
+	*this = enemy;
 }
 
 Enemy::~Enemy()
@@ -32,7 +32,7 @@ Enemy::~Enemy()
 
 }
 
-Enemy	&Enemy::operator=(Enemy const &enemy)
+Enemy	&Enemy::operator = (Enemy const &enemy)
 {
 	if (this == &enemy)
 		return (*this);
@@ -61,11 +61,3 @@ void Enemy::takeDamage(int damage)
 			this->_HP = 0;
 	}
 }
-
-std::ostream& operator << (std::ostream &out, Enemy const &enemy)
-{
-	out << "Type: " << aweapon.getType() << std::endl <<
-	"HP: " << aweapon.getHP() << std::endl <<
-	return (out);
-}
-

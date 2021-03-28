@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 20:21:06 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 23:45:16 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/26 04:14:24 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ class Enemy
 		int _HP;
 		std::string _type;
 };
-
-std::ostream &operator << (std::ostream &out, Enemy const &enemy);
 
 #endif

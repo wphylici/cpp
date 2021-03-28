@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 20:12:30 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 20:19:10 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/24 21:30:23 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ PowerFist &PowerFist::operator = (PowerFist const &powerfist)
 	_name = powerfist._name;
 	_damagePoints = powerfist._damagePoints;
 	_APcost = powerfist._APcost;
+
+	return (*this);
 }
 
 void PowerFist::attack() const

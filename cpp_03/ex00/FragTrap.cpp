@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 19:25:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/22 12:56:16 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/24 23:22:22 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void FragTrap::Born()
 {
-	std::string Bar = "[                                             ]      %";
+	std::string Bar = "[                                                   ]      %";
 	size_t progress = 1;
 
 	std::cout << BHI_YELLOW << "Сhecking software status";

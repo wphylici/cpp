@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 20:06:46 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 17:44:31 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/28 00:40:33 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Victim
 		Victim(std::string const Name);
 		Victim(const Victim &victim);
 		Victim &operator = (const Victim &victim);
-		~Victim();
+		virtual ~Victim();
 		std::string getName() const;
 		void getPolymorphed() const;
 

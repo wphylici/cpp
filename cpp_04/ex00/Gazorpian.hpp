@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:50:32 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/23 18:52:21 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/28 00:39:46 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Gazorpian : public Victim
 		Gazorpian(std::string const Name);
 		Gazorpian(const Gazorpian &gazorpian);
 		Gazorpian &operator = (const Gazorpian &gazorpian);
-		~Gazorpian();
+		virtual ~Gazorpian();
 		std::string getName() const;
 		void getPolymorphed() const;
 

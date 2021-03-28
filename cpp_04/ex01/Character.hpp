@@ -6,15 +6,15 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 23:39:45 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/24 00:06:45 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:29:12 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-#include "AWeapon.hpp"
-#include "Enemy.hpp"
+# include "AWeapon.hpp"
+# include "Enemy.hpp"
 
 class Character
 {
@@ -29,14 +29,16 @@ class Character
 		void equip(AWeapon *);
 		void attack(Enemy *);
 		std::string const getName() const;
+		int getAPnum() const;
+		AWeapon *getWeapon() const;
 
 	private:
 		std::string _name;
 		int _APnum;
-		AWeapon *weapon;
+		AWeapon *_weapon;
 
 };
 
-std::ostream &operator << (std::ostream &out, Enemy const &character);
+std::ostream &operator << (std::ostream &out, Character const &character);
 
 #endif
