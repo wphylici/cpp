@@ -6,20 +6,20 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 16:31:09 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/29 21:27:37 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:59:05 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string const Target) :
-Form("PresidentialPardonForm", 25, 5, Target)
+Form("presidential pardon", 25, 5, Target)
 {
 
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &PPform) :
-Form("PresidentialPardonForm", 25, 5, PPform.getTarget())
+Form("presidential pardon", 25, 5, PPform.getTarget())
 {
 
 }

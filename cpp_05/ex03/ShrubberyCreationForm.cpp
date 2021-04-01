@@ -6,20 +6,20 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 16:27:06 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/29 21:27:43 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:59:47 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const Target) :
-Form("ShrubberyCreationForm", 145, 137, Target)
+Form("shrubbery creation", 145, 137, Target)
 {
 
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &SCform) :
-Form("ShrubberyCreationForm", 145, 137, SCform.getTarget())
+Form("shrubbery creation", 145, 137, SCform.getTarget())
 {
 
 }

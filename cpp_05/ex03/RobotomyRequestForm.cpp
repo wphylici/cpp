@@ -6,20 +6,20 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 16:28:32 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/29 22:21:48 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:59:28 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const Target) :
-Form("RobotomyRequestForm", 72, 45, Target)
+Form("robotomy request", 72, 45, Target)
 {
 
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &RRform) :
-Form("RobotomyRequestForm", 72, 45, RRform.getTarget())
+Form("robotomy request", 72, 45, RRform.getTarget())
 {
 
 }
