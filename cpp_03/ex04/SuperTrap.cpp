@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 14:55:34 by wphylici          #+#    #+#             */
-/*   Updated: 2021/03/24 23:33:21 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/04/03 02:01:16 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ SuperTrap::SuperTrap(std::string const Name)
 {
 	std::cout << std::endl << BHI_CYAN << "*---------- SuperTrap constructor called ----------*";
 
-	FragTrap a;
-
 	this->_hitPoints = 100;
 	this->_maxHitPoints = 100;
 	this->_energyPoints = 120;
@@ -43,6 +41,7 @@ SuperTrap::SuperTrap(std::string const Name)
 	this->_meleeAttackDamage = 60;
 	this->_rangedAttackDamage = 20;
 	this->_armorDamageReduction = 5;
+
 	this->_color = BHI_CYAN;
 
 	std::cout << BHI_YELLOW << std::endl << "Param:" << RESET << std::endl << std::endl;
