@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 17:45:54 by wphylici          #+#    #+#             */
-/*   Updated: 2021/04/03 00:51:38 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/04/05 04:10:39 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void check_arg(char *argv)
 	{
 		if ((((arg[i] >= 32 && arg[i] <= 47) || (arg[i] >= 58 && arg[i] <= 126)) && (arg[i] != '.' && arg[i] != 'f' && arg[i] != '-')) ||
 		arg[0] == '.' || arg[0] == 'f' || (num_char_str(arg, '.') > 1 || num_char_str(arg, 'f') > 1 || arg[i] > 127 || arg[i] < 0 ||
-		(arg[i] == 'f' && i < (int)arg.size() - 1) || (num_char_str(arg, 'f') == 1 && num_char_str(arg, '.') == 0)) || num_char_str(arg, '-') > 1)
+		(arg[i] == 'f' && i < (int)arg.size() - 1) || (num_char_str(arg, 'f') == 1 && num_char_str(arg, '.') == 0)) || num_char_str(arg, '-') > 1 ||
+		(arg[0] == '-' && (int)arg.size() == 1))
 		{
 			std::cout << "Error: invalide argument" << std::endl;
 			exit(EXIT_FAILURE);

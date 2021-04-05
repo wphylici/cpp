@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 18:11:11 by wphylici          #+#    #+#             */
-/*   Updated: 2021/04/05 01:29:12 by wphylici         ###   ########.fr       */
+/*   Created: 2021/04/05 02:04:11 by wphylici          #+#    #+#             */
+/*   Updated: 2021/04/05 03:37:40 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
 # include <iostream>
 
-template <typename T> void swap(T &a, T &b)
+int j = 0;
+
+template <typename T1, typename T2>
+void iter(T1 *arr, T2 len, void(func)(T1 &))
 {
-	T tmp = a;
-	a = b;
-	b = tmp;
+	for (T2 i = 0; i < len; i++)
+		func(arr[i]);
+	j = 0;
 }
 
-template <typename T> T min(T a, T b)
+template <typename T>
+void ft_print(T c)
 {
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-template <typename T> T max(T a, T b)
-{
-	if (a > b)
-		return (a);
-	return (b);
+	std::cout << "[" << j++ << "]  " << c << std::endl;
 }
 
 #endif
