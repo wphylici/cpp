@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wphylici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 03:17:38 by wphylici          #+#    #+#             */
-/*   Updated: 2021/04/05 04:04:50 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/04/06 11:07:47 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ Data *deserialize(void *raw)
 	Data *res = new Data;
 
 	res->str1 = *reinterpret_cast<std::string *>(raw);
-	res->num = *reinterpret_cast<int *>(static_cast<char *>(raw) + sizeof(std::string));
-	res->str2 = *reinterpret_cast<std::string *>(static_cast<char *>(raw) + sizeof(std::string) + sizeof(int));
+	res->num = *reinterpret_cast<int *>(static_cast<char *>(raw) + sizeof(std::string) - 1);
+	res->str2 = *reinterpret_cast<std::string *>(static_cast<char *>(raw) + sizeof(std::string) + sizeof(int) - 1);
 
 	return (res);
 }
@@ -51,13 +51,13 @@ void *serialize()
 	*reinterpret_cast<std::string *>(res) = generate_str();
 	std::cout << "str1: " << *reinterpret_cast<std::string *>(res) << std::endl;
 
-	*reinterpret_cast<int *>(res + sizeof(std::string)) = rand();
-	std::cout << "int:  " <<  *reinterpret_cast<int *>(res + sizeof(std::string)) << std::endl;
+	*reinterpret_cast<int *>(res + sizeof(std::string) - 1) = rand();
+	std::cout << "int:  " <<  *reinterpret_cast<int *>(res + sizeof(std::string) - 1) << std::endl;
 
-	*reinterpret_cast<std::string *>(res + sizeof(std::string) + sizeof(int)) = generate_str();
-	std::cout << "str2: " << *reinterpret_cast<std::string *>(res + sizeof(std::string) + sizeof(int)) << std::endl;
+	*reinterpret_cast<std::string *>(res + sizeof(std::string) + sizeof(int) - 1) = generate_str();
+	std::cout << "str2: " << *reinterpret_cast<std::string *>(res + sizeof(std::string) + sizeof(int) - 1) << std::endl;
 
-	return (static_cast<void *>(res));
+	return (res);
 }
 
 int main()
