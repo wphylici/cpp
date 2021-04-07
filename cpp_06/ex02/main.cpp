@@ -6,7 +6,7 @@
 /*   By: wphylici <wphylici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 18:01:24 by wphylici          #+#    #+#             */
-/*   Updated: 2021/04/03 22:12:27 by wphylici         ###   ########.fr       */
+/*   Updated: 2021/04/06 23:56:05 by wphylici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,26 +50,12 @@ void identify_from_pointer(Base *p)
 
 void identify_from_reference(Base &p)
 {
-	try
-	{
-		(void)dynamic_cast<A &>(p);
+	if (dynamic_cast<A *>(&p))
 		std::cout << "it's A" << std::endl;
-	}
-	catch (std::bad_cast &ex) {}
-
-	try
-	{
-		(void)dynamic_cast<B &>(p);
+	if (dynamic_cast<B *>(&p))
 		std::cout << "it's B" << std::endl;
-	}
-	catch (std::bad_cast &ex) {}
-
-	try
-	{
-		(void)dynamic_cast<C &>(p);
+	if (dynamic_cast<C *>(&p))
 		std::cout << "it's C" << std::endl;
-	}
-	catch (std::bad_cast &ex) {}
 }
 
 int main()
